@@ -10,3 +10,6 @@ router.post('/logout', async (req,res)=>{
     // TO DO:
     //Write user logout post route after creating the USER MODEL 
 })
+//create/ aka anything associated w the user
+
+module.exports= router;
