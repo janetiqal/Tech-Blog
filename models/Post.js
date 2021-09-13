@@ -33,21 +33,20 @@ Post.init({
         },
     }
 },
-// {
+{
     // added hooks to capitlize every letter in the Title 
-//     hooks:{
-//         beforeCreate: async (newPost)=>{
-//             newPost.title= await capitalLetter(newPost.title)
-//             return
-//         },
-//         beforeUpdate: async (updatePost)=>{
-//             updatePost.title= await capitalLetter(updatePost.title)
-//             return
-//         }
-//     }
-// },
-    {
-        sequelize: sequelize,
+    hooks:{
+        beforeCreate: async (newPost)=>{
+            newPost.title= await capitalLetter(newPost.title)
+            return
+        },
+        beforeUpdate: async (updatePost)=>{
+            updatePost.title= await capitalLetter(updatePost.title)
+            return
+        }
+    },
+
+        sequelize,
         freezeTableName: true,
         underscored: true,
         modelName: 'post'
