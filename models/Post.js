@@ -1,7 +1,8 @@
-const { Model, DataTypes, DATE } = require('sequelize');
-const sequelize = require('../config/connection.js');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+const { capitalLetter } = require('../utils/helpers.js');
 
-class Post extends Model { }
+class Post extends Model {}
 
 Post.init({
     id: {
@@ -30,6 +31,19 @@ Post.init({
             model: 'user',
             key: 'id',
         },
+    }
+},
+{
+    //added hooks to capitlize every letter in the Title 
+    hooks:{
+        beforeCreate: async (newPost)=>{
+            newPost.title= await capitalLetter(newPost.title)
+            return
+        },
+        beforeUpdate: async (updatePost)=>{
+            updatePost.title= await capitalLetter(updatePost.title)
+            return
+        }
     }
 },
     {
