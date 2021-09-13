@@ -1,0 +1,19 @@
+
+/*NAV BAR styling*/
+nav{
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0 auto ;
+    padding: 10px;
+}
+/*Tech Blog Text in nav bar*/
+.navbar-brand{
+    font-size: 10vh;
+
+}
+/*tyling the nav bar options*/
+#navbarNav{
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+    font-size: 1.8rem;
+}
