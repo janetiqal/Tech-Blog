@@ -34,13 +34,13 @@ Post.hasMany(Comment, {
     onDelete: 'CASCADE'
 })
 //Comments belong to a single Post, and belongs to a single User
-//one to one
-Comment.hasOne(Post, {
+
+Comment.belongsTo(Post, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
 })
-//one to one
-Comment.hasOne(User, {
+
+Comment.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 })

@@ -23,7 +23,14 @@ CommentPost.init({
             model:'comment',
             key:'id'
         }
-      }
+      },
+},
+{
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'commentpost'
+
 })
 
 module.exports = CommentPost

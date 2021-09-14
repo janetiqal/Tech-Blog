@@ -17,7 +17,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate:{
-        is: alphanumeric
+        isAlphanumeric: true
       }
     },
     email: {
