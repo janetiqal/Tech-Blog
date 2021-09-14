@@ -1,50 +1,45 @@
 const User = require('./User')
 const Post = require('./Post')
 const Comment = require('./Comment')
-const CommentPost = require('./CommentPost')
 
-//A user can have as many posts and commenty any amount of times
-//CREATED the junction table CommentPost to handle this many 
-User.belongsToMany(Post, {
-    through:{   
-    model: CommentPost,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
-    },
-    as:'posts_by_user'
+
+//one to many
+User.hasMany(Post, {
+  foreignKey:'user_id',
+  onDelete: 'CASCADE'
+})
+//Posts can only belong to single user
+//many to one
+Post.belongsTo(User,{
+    foreignKey:'user_id',
+})
+//one to many
+User.hasMany(Comment, {
+  foreignKey:'user_id',
+  onDelete: 'CASCADE'
+})
+//many to one
+Comment.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+//Comments belong to a single Post, and belongs to a single User
+//many to one
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id'
 })
 
-User.belongsToMany(Comment, {
-    through:{   
-        model: CommentPost,
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-        },
-        as:'comments_by_user'
+//one to many
+Post.hasMany(Comment, {
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE',
+    // hooks:true
 })
 //Posts can only belong to a single User, but it can have many Comments
 //one to one
 Post.hasOne(User, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-})
-//one to many
-Post.hasMany(Comment, {
-    foreignKey: 'post_id',
-    onDelete: 'CASCADE'
-})
-//Comments belong to a single Post, and belongs to a single User
-
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id',
-    onDelete: 'CASCADE'
-})
-
-Comment.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+    foreignKey: 'user_id'
 })
 
 
 
-module.exports = { User, Post, Comment, CommentPost }
+module.exports = { User, Post, Comment }
