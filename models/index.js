@@ -34,12 +34,5 @@ Post.hasMany(Comment, {
     onDelete: 'CASCADE',
     // hooks:true
 })
-//Posts can only belong to a single User, but it can have many Comments
-//one to one
-Post.hasOne(User, {
-    foreignKey: 'user_id'
-})
-
-
 
 module.exports = { User, Post, Comment }
