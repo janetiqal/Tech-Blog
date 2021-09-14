@@ -17,16 +17,29 @@ nav{
     font-size: 1.8rem;
 }
 /*styling the login and sign up cardoptions*/
-.card{
+.card-dash{
     margin:40px 20px 0px 20px;
     font-family: 'Share Tech', sans-serif;
     font-size:x-large;
 }
-/*styling the login and sign up buttons*/
-.dashboard-btn{
+/*styling the login, sign-up, sumbit buttons*/
+.dashboard-btn, .post-btn{
  font-size: x-large;
  display: flex;
  justify-content: center;
  max-width: 30%;
  margin: auto;
 }   
+/*new post section*/
+.card-post{
+    margin: 40px;
+    font-family: 'Share Tech', sans-serif;
+}
+
+/*new post input-content*/
+#post-body{
+    height: 150px;
+}
+.card-header{
+    text-align: center;
+}

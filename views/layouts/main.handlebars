@@ -29,17 +29,20 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <!--update HREF's, check back in w aria-current= page and adding active to nav-link class-->
+                        <!-- check back in w aria-current= page and adding active to nav-link class-->
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active " href="/">Login</a>
+                            <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
                         </li>
                         <!--if logged in show the log out button -->
+                        {{#if loggedIn}}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Log Out</a>
+                            <a class="nav-link" href="/">Log Out</a>
                         </li>
+                        {{#else}}
+                         <li class="nav-item">
+                            <a class="nav-link active " href="/login">Login</a>
+                        </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
@@ -51,6 +54,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+    {{#if loggedIn}}
+    <script src="../../public/javascript/logout.js"></script>
 </body>
 
 </html>
