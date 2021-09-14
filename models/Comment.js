@@ -15,7 +15,7 @@ Comment.init({
         allowNull: false,
         validate: {
             is: /[a-zA-Z]/,
-            leng: [5]
+            len: [5]
         }
     },
     user_id: {
