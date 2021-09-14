@@ -1,11 +1,11 @@
 [
     {
-        "name": "Sam Smith",
+        "username": "SamSmith",
         "email": "sam@gmail.com",
         "password": "staywithme"
     },
     {
-        "name": "Kanye West",
+        "username": "KanyeWest",
         "email": "kanye@gmail.com",
         "password": "donda2021"
     }
