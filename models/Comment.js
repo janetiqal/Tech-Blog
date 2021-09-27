@@ -10,11 +10,10 @@ Comment.init({
         allowNull: false,
         autoIncrement: true
     },
-    body: {
+    comment_body: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            is: /[a-zA-Z]/,
             len: [5]
         }
     },
@@ -37,6 +36,7 @@ Comment.init({
 },
     {
         sequelize,
+        timestamps:true,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment'

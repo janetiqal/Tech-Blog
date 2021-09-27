@@ -1,12 +1,12 @@
 [
     {
         "title":"Coding with partners",
-        "body":"Its always a good idea to code with people, you can...",
+        "post_body":"Its always a good idea to code with people, you can...",
         "user_id":1
     },
     {
         "title":"Coding is a work in progess",
-        "body":"You wont get good at this overnight,...",
+        "post_body":"You wont get good at this overnight,...",
         "user_id":2
     }
 ]

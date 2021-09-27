@@ -20,7 +20,7 @@ Post.init({
         }
     },
     //content of post
-    body: {
+    post_body: {
         type: DataTypes.STRING,
         allowNull: false,
         //validation
@@ -47,6 +47,7 @@ Post.init({
     },
 
         sequelize,
+        timestamps:true,
         freezeTableName: true,
         underscored: true,
         modelName: 'post'

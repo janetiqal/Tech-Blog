@@ -10,8 +10,8 @@ nav{
 
 }
 /*styling the nav bar options*/
-#navbarNav{
-    position: absolute;
+.styledNav{
+    /* position: relative; */
     bottom: 0px;
     right:0px;
     font-size: 1.8rem;
@@ -42,4 +42,8 @@ nav{
 }
 .card-header{
     text-align: center;
+}
+
+.loginPage-card{
+    margin-top: 25px;
 }

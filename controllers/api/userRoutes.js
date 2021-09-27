@@ -63,6 +63,7 @@ router.post('/', async (req, res) => {
             req.session.password = newUser.password;
             req.session.loggedIn = true;
             res.status(200).json(newUser)
+            console.log("new user posted")
         })
     } catch (err) {
         res.status(400).json(err)
@@ -93,6 +94,7 @@ router.post('/login', async (req, res) => {
            req.session.loggedIn= true
            
         res.json({user: userLoginData, message: "You are now logged in!" })
+        console.log("user logged IN")
        });
    } catch(err){
    res.status(400).json(err)
@@ -103,11 +105,12 @@ router.post('/logout', async (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
           res.status(204).end();
+          console.log('user logged out')
         });
       } else {
         res.status(404).end();
       }
-})
+});
 
 
 module.exports = router;
