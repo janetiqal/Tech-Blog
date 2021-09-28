@@ -25,3 +25,12 @@ if(title || post_body){
 const btns = document.querySelectorAll('.update-post');
 [...btns].forEach(btn => btn.addEventListener('click', editPostHandler))
 //TO DO: create post js
+
+//TO DO: Delete Post JS
+
+const deletePostHandler= async (event)=>{
+    event.preventDefault();
+    
+    const postID= event.target.getAttribute('data-id')
+
+}

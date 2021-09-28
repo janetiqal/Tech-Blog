@@ -4,7 +4,7 @@
     <h2 class="card-header">Title: {{title}}</h2>
        <span class="post-spans"> <button type="button" class="btn btn-warning" data-toggle="modal" id="edit-post"
             data-target="#post{{id}}"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
-    <button class="btn-danger"id="delete-post"><i class="fas fa-trash-alt"></i></button></span>
+    <button class="btn-danger"id="delete-post" data-toggle="modal" data-target="#deletePost{{id}}"><i class="fas fa-trash-alt"></i></button></span>
     <p>{{post_body}}</p>
     <p>Written by: {{user.username}} {{format_date created_at}}</p>
 </div>
@@ -19,11 +19,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
             <div class="modal-title">
                 <textarea name="newTitle" placeholder="New Title" class="newTitle" id="post{{id}}" cols="40" rows="1"></textarea>
             </div>
-
             <div class="modal-body">
                 <textarea name="newBody" class="newBody" id="post{{id}}" cols="40" rows="9">{{post_body}}</textarea>
             </div>
@@ -33,6 +31,26 @@
             </div>
         </div>
     </div>
+</div>
+
+
+{{!-- {{Delete Post Warning MODAL}} --}}
+<div class="modal fade" id="deletePost{{id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Delete Post: {{title}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the {{title}} post?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-id={{id}}> Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="/javascript/post.js"></script>
 {{/each}}
