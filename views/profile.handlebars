@@ -1,3 +1,38 @@
-<h1>Welcome to your profile{{title}}</h1>
-<h2>{{title}}</h2>
-{{post_body}}
+<h1>Welcome to your profile, {{username}}!</h1>
+{{#each posts as |post|}}
+<div class="card card-post">
+    <h2 class="card-header">Title: {{title}}</h2>
+       <span class="post-spans"> <button type="button" class="btn btn-warning" data-toggle="modal" id="edit-post"
+            data-target="#post{{id}}"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
+    <button class="btn-danger"id="delete-post"><i class="fas fa-trash-alt"></i></button></span>
+    <p>{{post_body}}</p>
+    <p>Written by: {{user.username}} {{format_date created_at}}</p>
+</div>
+
+{{!-- {{EDIT POST MODAL}} --}}
+<div class="modal fade" id="post{{id}}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="title">Edit Post: {{title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-title">
+                <textarea name="newTitle" placeholder="New Title" class="newTitle" id="post{{id}}" cols="40" rows="1"></textarea>
+            </div>
+
+            <div class="modal-body">
+                <textarea name="newBody" class="newBody" id="post{{id}}" cols="40" rows="9">{{post_body}}</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary update-post" data-dismiss="modal" data-id={{id}}>Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascript/post.js"></script>
+{{/each}}

@@ -47,3 +47,10 @@ nav{
 .loginPage-card{
     margin-top: 25px;
 }
+/*the edit post icon and delete post icon in dashboard*/
+.post-spans{
+    display: inline-flex;
+    justify-content: flex-end;
+    padding-inline-end: 3px;
+    padding-top: 3px;
+}

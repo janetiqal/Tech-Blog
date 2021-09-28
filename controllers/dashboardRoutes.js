@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req,res)=>{
             where:{
                 user_id: req.session.user_id,
             },
-            attributes:['created_at','title','post_body'],
+            attributes:['created_at','title','post_body', 'id'],
             order:[],
             include:[{
                 model: Comment,
@@ -27,9 +27,11 @@ router.get('/', withAuth, async (req,res)=>{
         })
         const posts = allUserPosts.map(post => post.get({ plain: true }));
         console.log(posts)
-     
+        // console.log(posts[0].user.username)
+        const username= posts[0].user.username
         res.render('profile',{
             posts,
+            username,
             loggedIn: req.session.loggedIn
         })
   }
@@ -42,5 +44,38 @@ router.get('/', withAuth, async (req,res)=>{
 //create a new post
     //redirects to updated dashboard/aka reloads the page
 //edit a post
+// router.get('/edit/:id', withAuth, async (req,res)=>{
+//    try {
+//   const editPost= await Post.findOne({
+//         where:{
+//             id:req.params.id
+//         },
+//         attributes: [
+//             'id',
+//             'title',
+//             'created_at',
+//             'post_body'
+//           ],
+//         include:[{model: User,
+//             attributes:["username"] 
+//         }
+//     ]
+//     })
+//     if (!editPost){
+//         res.status(404).json({ message: 'No post found with this id.' });
+//         return;
+//       }
+//     const singlePost= editPost.get({plain:true})
+//     res.render('edit-post',{
+//         singlePost,
+//         loggedIn: req.session.loggedIn
+//     })
+// }
+// catch(err){
+//     res.status(500).json(err)
+//     console.log(err)
+// }
+// })
+
 //delete a post
 module.exports= router;
