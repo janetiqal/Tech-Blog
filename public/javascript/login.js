@@ -1,18 +1,16 @@
 
 
-console.log("login js connected")
+console.log("login/signup js connected")
 
 //login JS
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
     const username = document.querySelector('#usernameLogin').value.trim();
-    console.log("username", username)
     const password = document.querySelector('#loginPassword').value.trim();
-    console.log("user password", password)
 
     if (!username || !password) {
-        sendAlert("Must include email and password before signing in.", 'danger', '.login-button')
+        sendAlert("Must include email and password before signing in.", 'danger', '.login-btn')
     }
 
     if (username && password) {
@@ -21,19 +19,19 @@ const loginFormHandler = async (event) => {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-   
-    if (response.ok) {
-        //if successfule login, sending user to their profile
-        document.location.replace('/dashboard')
-        console.log('user logged in')
+
+        if (response.ok) {
+            //if successfule login, sending user to their profile
+            document.location.replace('/dashboard')
+            console.log('user logged in')
+        }
+        if (response.status === 400) {
+            sendAlert("Incorrect email or password, please try again.", 'danger', '.login-btn');
+        }
+        else {
+            sendAlert("Server Error, unable to login", 'danger', '.login-btn');
+        }
     }
-    if (response.status === 400) {
-        sendAlert("Incorrect email or password, please try again.", 'danger', '.login-btn');
-    }
-    else {
-        sendAlert("Server Error, unable to login", 'danger', '.login-btn');
-    }
-}
 }
 
 //alerts using bootstrap growl
@@ -48,5 +46,38 @@ function sendAlert(status, color, element) {
 }
 
 //TO DO: CREATE THE SIGN UP FUNCTIONALITY 
+const signupFormHandler = async (event) => {
+    event.preventDefault();
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler)
+    const email = document.querySelector('#signupEmail').value.trim();
+    console.log(email)
+    const username = document.querySelector('#signupUsername').value.trim();
+    console.log(username)
+    const password = document.querySelector('#signupPassword').value.trim();
+    console.log(password)
+
+    //alerts user if fields left empty
+    if (!username || !password || !email) {
+        sendAlert("Must fill in all fields before signing up.", 'danger', '.signup-btn')
+    }
+
+    if (username && password && email) {
+        const response = await fetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify({ username, password, email }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            //if successfule signup, sending user to their profile
+            document.location.replace('/dashboard')
+        }
+        if (response.status === 400) {
+            sendAlert("Error signing up.", 'danger', '.signup-btn');
+        }
+    }
+}
+
+    document.querySelector('.login-form').addEventListener('submit', loginFormHandler)
+
+    document.querySelector('.signup-form').addEventListener('submit', signupFormHandler)
