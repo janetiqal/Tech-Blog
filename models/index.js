@@ -16,7 +16,7 @@ Post.belongsTo(User,{
 //one to many
 User.hasMany(Comment, {
   foreignKey:'user_id',
-  onDelete: 'CASCADE'
+  // onDelete: 'CASCADE'
 })
 //many to one
 Comment.belongsTo(User, {
@@ -25,7 +25,8 @@ Comment.belongsTo(User, {
 //Comments belong to a single Post, and belongs to a single User
 //many to one
 Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    // onDelete:'CASCADE'
 })
 
 //one to many
