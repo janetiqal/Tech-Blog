@@ -26,7 +26,7 @@ Comment.belongsTo(User, {
 //many to one
 Comment.belongsTo(Post, {
     foreignKey: 'post_id',
-    // onDelete:'CASCADE'
+    onDelete:'CASCADE'
 })
 
 //one to many

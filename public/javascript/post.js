@@ -27,8 +27,14 @@ const updateBtns = document.querySelectorAll('.update-post');
 [...updateBtns].forEach(btn => btn.addEventListener('click', editPostHandler))
 //TO DO: create post js
 
-//TO DO: Delete Post JS
+const createPostHandler = async (event)=>{
+    event.preventDefault();
+    
+}
 
+
+
+//TO DO: Delete Post JS
 const deletePostHandler = async (event) => {
     event.preventDefault();
     console.log(event.target)

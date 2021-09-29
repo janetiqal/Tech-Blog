@@ -91,7 +91,8 @@ router.post('/login', async (req, res) => {
        //save session and mark as logged in if password and email match 
        req.session.save(()=>{
            req.session.user_id=userLoginData.id;
-           req.session.loggedIn= true
+           req.session.username=userLoginData.username;
+           req.session.loggedIn= true;
            
         res.json({user: userLoginData, message: "You are now logged in!" })
         console.log("user logged IN")

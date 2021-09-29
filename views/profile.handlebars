@@ -1,4 +1,8 @@
-<h1>Welcome to your profile, {{username}}!</h1>
+<h1>Welcome to your profile, {{username}}! </h1>
+
+<button class="btn btn-primary" id="createPost">Create New Post</button>
+
+{{#if postlength}}
 {{#each posts as |post|}}
 <div class="card card-post">
     <h2 class="card-header">Title: {{title}}</h2>
@@ -54,3 +58,7 @@
 </div>
 <script src="/javascript/post.js"></script>
 {{/each}}
+{{else}}
+<h1>No Posts yet.</h1>
+{{/if}}
+{{!-- {{/if}} --}}

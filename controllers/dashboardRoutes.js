@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req,res)=>{
                 user_id: req.session.user_id,
             },
             attributes:['created_at','title','post_body', 'id'],
-            order:[],
+            // order:[],
             include:[{
                 model: Comment,
                 attributes:['post_id','user_id','comment_body','created_at','id'],
@@ -26,12 +26,15 @@ router.get('/', withAuth, async (req,res)=>{
             ]
         })
         const posts = allUserPosts.map(post => post.get({ plain: true }));
-        console.log(posts)
+        console.log(posts.length)
+        const postlength= posts.length
         // console.log(posts[0].user.username)
-        const username= posts[0].user.username
+        console.log(req.session.username)
+        // const username= posts[0].user.username
         res.render('profile',{
             posts,
-            username,
+            // postlength,
+            username: req.session.username,
             loggedIn: req.session.loggedIn
         })
   }
