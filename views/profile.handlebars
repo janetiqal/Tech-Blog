@@ -1,14 +1,16 @@
 <h1>Welcome to your profile, {{username}}! </h1>
 
-<button class="btn btn-primary" id="createPost">Create New Post</button>
+<button type="button" class="btn btn-primary"id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+    data-target=".createPost">Create New Post</button>
 
 {{#if postlength}}
 {{#each posts as |post|}}
 <div class="card card-post">
     <h2 class="card-header">Title: {{title}}</h2>
-       <span class="post-spans"> <button type="button" class="btn btn-warning" data-toggle="modal" id="edit-post"
+    <span class="post-spans"> <button type="button" class="btn btn-warning" data-toggle="modal" id="edit-post"
             data-target="#post{{id}}"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
-    <button class="btn-danger"id="delete-post" data-toggle="modal" data-target="#deletePost{{id}}"><i class="fas fa-trash-alt"></i></button></span>
+        <button class="btn-danger" id="delete-post" data-toggle="modal" 
+            data-target="#deletePost{{id}}"><i class="fas fa-trash-alt"></i></button></span>
     <p>{{post_body}}</p>
     <p>Written by: {{user.username}} {{format_date created_at}}</p>
 </div>
@@ -24,37 +26,66 @@
                 </button>
             </div>
             <div class="modal-title">
-                <textarea name="newTitle" placeholder="New Title" class="newTitle" id="post{{id}}" cols="40" rows="1"></textarea>
+                <textarea name="newTitle" placeholder="New Title" class="newTitle" id="post{{id}}" cols="40"
+                    rows="1"></textarea>
             </div>
             <div class="modal-body">
                 <textarea name="newBody" class="newBody" id="post{{id}}" cols="40" rows="9">{{post_body}}</textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary update-post" data-dismiss="modal" data-id={{id}}>Update</button>
+                <button type="button" class="btn btn-primary update-post" data-dismiss="modal"
+                    data-id={{id}}>Update</button>
             </div>
         </div>
     </div>
 </div>
 
-
 {{!-- {{Delete Post Warning MODAL}} --}}
-<div class="modal fade" id="deletePost{{id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Delete Post: {{title}}</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete the {{title}} post?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger delete-post" data-dismiss="modal" data-id={{id}}>Delete</button>
-      </div>
+<div class="modal fade" id="deletePost{{id}}" data-bs-keyboard="false" tabindex="-1"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Delete Post: {{title}}</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete the {{title}} post?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger delete-post" data-dismiss="modal"
+                    data-id={{id}}>Delete</button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+{{!-- {{CREATE NEW Post w a static Modal}} --}}
+<div class="modal fade createPost" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create New Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-title">
+                <h5>Title:</h5>
+                <textarea name="newPostTitle" placeholder="Post Title" class="newPostTitle" cols="40"
+                    rows="1"></textarea>
+            </div>
+            <div class="modal-body">
+                <h5>Post Content</h5>
+                <textarea name="postBody" class="postBody" cols="40" rows="9"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" data-bs-dismiss="modal" class="btn btn-primary new-post">Post</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="/javascript/post.js"></script>
 {{/each}}
