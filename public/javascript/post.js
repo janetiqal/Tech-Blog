@@ -4,23 +4,27 @@ console.log("post js connected")
 const editPostHandler = async (event) => {
     event.preventDefault();
     console.log(event.target)
-
-    const title = document.querySelector('.newTitle').value.trim()
-    const post_body = document.querySelector('.newBody').value.trim()
+    //error here: not selecting the correct values
+        //if i used queryselectorAll they return undefined..
+        //if left as is, they take the value of the first post and update the current post w the original posts title and body..
+    const title = document.querySelectorAll('.newTitle').value
+    const post_body = document.querySelector('.newBody').value
     const postID = event.target.getAttribute('data-id')
     console.log("new post title:", title, "post id:", postID, "post body:", post_body)
 
     if (title || post_body) {
         const response = await fetch(`api/post/${postID}`, {
-            method: 'PUT',
+            // method: 'PUT',
             body: JSON.stringify({ id: postID, title: title, post_body: post_body }),
             headers: { 'Content-Type': 'application/json' },
         })
         if (response.ok) {
             document.location.reload('/dashboard')
         }
+
     }
 }
+//TO DO:  the value of post body is set as  the first post's body.. not updating but data-id is updating.
 const updateBtns = document.querySelectorAll('.update-post');
 [...updateBtns].forEach(updateBtn => updateBtn.addEventListener('click', editPostHandler))
 
@@ -54,7 +58,6 @@ const deletePostHandler = async (event) => {
     console.log(event.target)
     const postId = event.target.getAttribute('data-id')
     console.log(postId)
-
 
     const response = await fetch(`api/post/${postId}`, {
         method: 'DELETE',
