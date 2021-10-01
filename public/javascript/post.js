@@ -7,21 +7,21 @@ const editPostHandler = async (event) => {
     //error here: not selecting the correct values
         //if i used queryselectorAll they return undefined..
         //if left as is, they take the value of the first post and update the current post w the original posts title and body..
-    const title = document.querySelectorAll('.newTitle').value
-    const post_body = document.querySelector('.newBody').value
+    // const title = document.querySelector('.newTitle').value
     const postID = event.target.getAttribute('data-id')
+    const title = document.querySelector(`#post${postID}`).value
+    const post_body = document.querySelector('.newBody').value
     console.log("new post title:", title, "post id:", postID, "post body:", post_body)
 
     if (title || post_body) {
         const response = await fetch(`api/post/${postID}`, {
-            // method: 'PUT',
-            body: JSON.stringify({ id: postID, title: title, post_body: post_body }),
+            method: 'PUT',
+            body: JSON.stringify({ title: title, post_body: post_body }),
             headers: { 'Content-Type': 'application/json' },
         })
         if (response.ok) {
             document.location.reload('/dashboard')
         }
-
     }
 }
 //TO DO:  the value of post body is set as  the first post's body.. not updating but data-id is updating.

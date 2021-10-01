@@ -44,7 +44,8 @@ catch(err){
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
-      res.redirect('/profile');
+        console.log("the session of loggedIn :",req.session.loggedIn)
+      res.redirect('/dashboard');
       return;
     }
     console.log(req.session)

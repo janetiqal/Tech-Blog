@@ -33,7 +33,7 @@ router.get('/', withAuth, async (req,res)=>{
             posts,
             postlength,
             username: req.session.username,
-            loggedIn: req.session.loggedIn
+            loggedIn: true
         })
   }
     catch(err) {

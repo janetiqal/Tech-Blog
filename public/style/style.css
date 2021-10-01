@@ -54,3 +54,7 @@ nav{
     padding-inline-end: 3px;
     padding-top: 3px;
 }
+#comment-btn{
+   max-width: fit-content;
+   margin: 0 auto;
+}

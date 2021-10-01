@@ -23,12 +23,12 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             //if successfule login, sending user to their profile
             document.location.replace('/dashboard')
-            console.log('user logged in')
         }
         if (response.status === 400) {
             sendAlert("Incorrect email or password, please try again.", 'danger', '.login-btn');
+            
         }
-        else {
+        else if(response.status >= 500) {
             sendAlert("Server Error, unable to login", 'danger', '.login-btn');
         }
     }

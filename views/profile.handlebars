@@ -27,7 +27,7 @@
             </div>
             <div class="modal-title">
                 <textarea name="newTitle" placeholder="New Title" class="newTitle" id="post{{id}}" cols="40"
-                    rows="1"></textarea>
+                    rows="1">{{title}}</textarea>
             </div>
             <div class="modal-body">
                 <textarea name="newBody" class="newBody" id="post{{id}}" cols="40" rows="9">{{post_body}}</textarea>
@@ -61,8 +61,13 @@
         </div>
     </div>
 </div>
+{{/each}}
+{{else}}
+<h1>No Posts yet.</h1>
+{{/if}}
 
 {{!-- {{CREATE NEW Post w a static Modal}} --}}
+    {{!-- {{had to be outside of if statement}} --}}
 <div class="modal fade createPost" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -87,9 +92,4 @@
         </div>
     </div>
 </div>
-{{/each}}
-{{else}}
-<h1>No Posts yet.</h1>
-{{/if}}
-
 <script src="/javascript/post.js"></script>
