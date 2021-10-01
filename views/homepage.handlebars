@@ -1,16 +1,15 @@
-
 {{#each posts as |post|}}
-   <div class="card card-post">
-        <h2 class="card-header">{{title}}</h2>
-           
-            <p>{{post_body}}</p>
+<div class="card card-post">
+  <h2 class="card-header">{{title}}</h2>
 
-            <p>Written by: {{user.username}} {{format_date created_at}}</p>
-            {{!-- <p>{{post comments}}</p> --}}
-               {{#if loggedIn}}
-             <button class="btn btn-warning" id="comment-btn">Add A Comment</button>
-                       {{/if}}
-    </div>
-    {{else}}
-    <h1>NO POSTS</h1>
+  <p>{{post_body}}</p>
+
+  <p>Written by: {{user.username}} {{format_date created_at}}</p>
+  {{!-- <p>{{post comments}}</p> --}}
+  {{#if loggedIn}}
+  <button class="btn btn-warning" id="comment-btn">Add A Comment</button>
+  {{/if}}
+</div>
+{{else}}
+<h1>NO POSTS</h1>
 {{/each}}

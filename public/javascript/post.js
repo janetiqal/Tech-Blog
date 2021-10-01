@@ -9,7 +9,8 @@ const editPostHandler = async (event) => {
         //if left as is, they take the value of the first post and update the current post w the original posts title and body..
     // const title = document.querySelector('.newTitle').value
     const postID = event.target.getAttribute('data-id')
-    const title = document.querySelector(`#post${postID}`).value
+    const title = document.querySelector('.newTitle').value
+    // const title = document.querySelector('textarea[name="newTitle"]').value
     const post_body = document.querySelector('.newBody').value
     console.log("new post title:", title, "post id:", postID, "post body:", post_body)
 
