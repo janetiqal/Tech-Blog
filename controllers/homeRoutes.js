@@ -26,8 +26,7 @@ try{
     });
         // Serialize data so the template can read it
     const posts = postData.map(post=> post.get({plain:true}));
-    // console.log("posts,",posts)
-    // console.log("comments?",posts[0].comments.comment_body)
+    console.log("posts,",posts)
     //TO DO: COMMENTS SHOWING UP AS OBJECTS..
  
     res.render('homepage', {

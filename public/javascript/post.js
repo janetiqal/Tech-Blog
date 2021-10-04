@@ -14,7 +14,7 @@ const editPostHandler = async (event) => {
     const post_body = document.querySelector('.newBody').value
     console.log("new post title:", title, "post id:", postID, "post body:", post_body)
 
-    if (title || post_body) {
+    // if (title || post_body) {
         const response = await fetch(`api/post/${postID}`, {
             method: 'PUT',
             body: JSON.stringify({ title: title, post_body: post_body }),
@@ -23,7 +23,7 @@ const editPostHandler = async (event) => {
         if (response.ok) {
             document.location.reload('/dashboard')
         }
-    }
+    // }
 }
 //TO DO:  the value of post body is set as  the first post's body.. not updating but data-id is updating.
 const updateBtns = document.querySelectorAll('.update-post');

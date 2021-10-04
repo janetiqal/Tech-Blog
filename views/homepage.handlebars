@@ -5,9 +5,11 @@
   <p>{{post_body}}</p>
 
   <p>Written by: {{user.username}} {{format_date created_at}}</p>
-  {{!-- <p>{{post comments}}</p> --}}
+  <p>{{post comments}}</p>
   {{#if loggedIn}}
   <button class="btn btn-warning" id="comment-btn">Add A Comment</button>
+   {{else}}
+   <p>No comments</p>
   {{/if}}
 </div>
 {{else}}
