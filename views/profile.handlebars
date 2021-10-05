@@ -1,7 +1,6 @@
-<h1>Welcome to your profile, {{username}}! </h1>
-
-<button type="button" class="btn btn-primary"id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-    data-target=".createPost">Create New Post</button>
+<h1 id="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
+<button type="button" class="btn btn-success"id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+    data-target=".createPost">CREATE NEW POST</button>
 
 {{#if postlength}}
 {{#each posts as |post|}}

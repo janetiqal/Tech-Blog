@@ -15,7 +15,7 @@ try{
             },
             {
                 model: Comment,
-                attributes: ['id', 'comment_body', 'user_id','post_id'],
+                attributes: ['id', 'comment_body', 'user_id','created_at'],
                 //associated the comment w a username
                 include: {
                     model: User,
@@ -27,8 +27,6 @@ try{
         // Serialize data so the template can read it
     const posts = postData.map(post=> post.get({plain:true}));
     console.log("posts,",posts)
-    //TO DO: COMMENTS SHOWING UP AS OBJECTS..
- 
     res.render('homepage', {
         posts, 
         loggedIn: req.session.loggedIn

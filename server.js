@@ -20,12 +20,12 @@ const hbs = exphbs.create({ helpers });
 const sess = {
     secret: process.env.DB_SECRET,
     cookie: {
-      //session is set to 10min before expiration
-      // maxAge: 600000
+      // session is set to 10min before expiration
+      maxAge: 600000
     },
     resave: false,
     //session exipiration resets everytime a request is made by user
-    // rolling: true,
+    rolling: true,
     saveUninitialized: true,
     store: new SequelizeStore({
       db: sequelize,

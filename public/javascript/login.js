@@ -1,6 +1,5 @@
-
-
 console.log("login/signup js connected")
+// const { sendAlert }=require(`../../utils/authorization`)
 
 //login JS
 const loginFormHandler = async (event) => {
@@ -34,7 +33,7 @@ const loginFormHandler = async (event) => {
     }
 }
 
-//alerts using bootstrap growl
+// alerts using bootstrap growl
 function sendAlert(status, color, element) {
     $(".bootstrap-growl").remove();
     $.bootstrapGrowl(status, {
