@@ -15,7 +15,7 @@ try{
             },
             {
                 model: Comment,
-                attributes: ['id', 'comment_body', 'user_id','post_id'],
+                attributes: ['id', 'comment_body', 'user_id','created_at'],
                 //associated the comment w a username
                 include: {
                     model: User,
@@ -26,10 +26,7 @@ try{
     });
         // Serialize data so the template can read it
     const posts = postData.map(post=> post.get({plain:true}));
-    // console.log("posts,",posts)
-    // console.log("comments?",posts[0].comments.comment_body)
-    //TO DO: COMMENTS SHOWING UP AS OBJECTS..
- 
+    console.log("posts,",posts)
     res.render('homepage', {
         posts, 
         loggedIn: req.session.loggedIn
@@ -44,7 +41,8 @@ catch(err){
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
-      res.redirect('/profile');
+        console.log("the session of loggedIn :",req.session.loggedIn)
+      res.redirect('/dashboard');
       return;
     }
     console.log(req.session)

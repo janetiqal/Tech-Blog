@@ -86,13 +86,9 @@ router.post('/', withAuth, async (req, res) => {
 })
 //Update an existing post when logged in 
 router.put('/:id', withAuth, async (req, res) => {
+    console.log("req body", req.body, req.params.id)
     try {
-        const updatePost = await Post.update(
-            {
-                title: req.body.title,
-                post_body: req.body.post_body
-            },
-            {
+        const updatePost = await Post.update(req.body,{
                 where: {
                     id: req.params.id
                 },

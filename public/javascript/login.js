@@ -1,6 +1,5 @@
-
-
 console.log("login/signup js connected")
+// const { sendAlert }=require(`../../utils/authorization`)
 
 //login JS
 const loginFormHandler = async (event) => {
@@ -23,18 +22,18 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             //if successfule login, sending user to their profile
             document.location.replace('/dashboard')
-            console.log('user logged in')
         }
         if (response.status === 400) {
             sendAlert("Incorrect email or password, please try again.", 'danger', '.login-btn');
+            
         }
-        else {
+        else if(response.status >= 500) {
             sendAlert("Server Error, unable to login", 'danger', '.login-btn');
         }
     }
 }
 
-//alerts using bootstrap growl
+// alerts using bootstrap growl
 function sendAlert(status, color, element) {
     $(".bootstrap-growl").remove();
     $.bootstrapGrowl(status, {

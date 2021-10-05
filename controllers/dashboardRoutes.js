@@ -28,14 +28,12 @@ router.get('/', withAuth, async (req,res)=>{
         const posts = allUserPosts.map(post => post.get({ plain: true }));
         console.log(posts.length)
         const postlength= posts.length
-        // console.log(posts[0].user.username)
         console.log(req.session.username)
-        // const username= posts[0].user.username
         res.render('profile',{
             posts,
-            // postlength,
+            postlength,
             username: req.session.username,
-            loggedIn: req.session.loggedIn
+            loggedIn: true
         })
   }
     catch(err) {
@@ -44,41 +42,4 @@ router.get('/', withAuth, async (req,res)=>{
     }
 })
 
-//create a new post
-    //redirects to updated dashboard/aka reloads the page
-//edit a post
-// router.get('/edit/:id', withAuth, async (req,res)=>{
-//    try {
-//   const editPost= await Post.findOne({
-//         where:{
-//             id:req.params.id
-//         },
-//         attributes: [
-//             'id',
-//             'title',
-//             'created_at',
-//             'post_body'
-//           ],
-//         include:[{model: User,
-//             attributes:["username"] 
-//         }
-//     ]
-//     })
-//     if (!editPost){
-//         res.status(404).json({ message: 'No post found with this id.' });
-//         return;
-//       }
-//     const singlePost= editPost.get({plain:true})
-//     res.render('edit-post',{
-//         singlePost,
-//         loggedIn: req.session.loggedIn
-//     })
-// }
-// catch(err){
-//     res.status(500).json(err)
-//     console.log(err)
-// }
-// })
-
-//delete a post
 module.exports= router;

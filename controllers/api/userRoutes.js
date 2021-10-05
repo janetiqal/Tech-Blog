@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
             email: req.body.email,
             password: req.body.password
         },
-            {   //makes sure password is being hashed 
+            {   
                 individualHooks: true
             }
         )
@@ -92,10 +92,10 @@ router.post('/login', async (req, res) => {
        req.session.save(()=>{
            req.session.user_id=userLoginData.id;
            req.session.username=userLoginData.username;
-           req.session.loggedIn= true;
+           req.session.loggedIn = true;
            
         res.json({user: userLoginData, message: "You are now logged in!" })
-        console.log("user logged IN")
+        console.log("user routes: user logged IN")
        });
    } catch(err){
    res.status(400).json(err)

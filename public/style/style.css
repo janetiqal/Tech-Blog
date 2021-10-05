@@ -22,6 +22,9 @@ nav{
     font-family: 'Share Tech', sans-serif;
     font-size:x-large;
 }
+.loginPage-card{
+    margin-top: 25px;
+}
 /*styling the login, sign-up, sumbit buttons*/
 .dashboard-btn, .post-btn{
  font-size: x-large;
@@ -32,7 +35,10 @@ nav{
 }   
 /*new post section*/
 .card-post{
-    margin: 40px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 65%;
     font-family: 'Share Tech', sans-serif;
 }
 
@@ -42,15 +48,36 @@ nav{
 }
 .card-header{
     text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+  
+    /* background-color:navy;
+    color:royalblue; */
 }
 
-.loginPage-card{
-    margin-top: 25px;
-}
 /*the edit post icon and delete post icon in dashboard*/
 .post-spans{
     display: inline-flex;
     justify-content: flex-end;
     padding-inline-end: 3px;
     padding-top: 3px;
+}
+/*dashboard welcome header*/
+#dashboardHeader{
+   text-align: center;
+   font-family: 'Share Tech Mono', monospace;
+   font-size: 2em;
+   padding-top:15px ;
+}
+#new-post{
+   font-family: 'Share Tech Mono', monospace;
+    margin-top: 15px;
+
+}
+#comment-btn{
+   max-width: fit-content;
+   margin: 0 auto;
+}
+#username{
+    font-weight: bold;
+    color:royalblue;
 }
