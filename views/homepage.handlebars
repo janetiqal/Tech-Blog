@@ -5,17 +5,21 @@
   <p>{{post_body}}</p>
 
   <p>Written by: {{user.username}}, {{format_date created_at}}</p>
-  <p>{{#each comments}}</p>
+
+  {{!-- <p>{{#each comments}}</p>
   {{comment_body}}
   {{user.username}}
- {{format_date created_at}}
+  {{format_date created_at}}
   {{else}}
   <p>No comments</p>
-  {{/each}}
-  {{#if loggedIn}}
-  <button class="btn btn-warning" id="comment-btn">Add A Comment</button>
+  {{/each}} --}}
+
+  {{#if comments.length}}
+  <a href="/post/{{id}}"> {{comments.length}} {{make_plural "comment"comments.length}}</a>
+  {{else}}
+  <a href="/post/{{id}}">Be the first to add a comment</a>
   {{/if}}
-  
+
 </div>
 {{else}}
 <h1>NO POSTS</h1>

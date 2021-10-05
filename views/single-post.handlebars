@@ -1,0 +1,16 @@
+<div class="card card-post">
+  <h2 class="card-header">{{post.title}}</h2>
+
+  <p>{{post.post_body}}</p>
+
+  <p>Written by: {{post.user.username}}, {{format_date post.created_at}} 
+
+ </p>
+<p>{{#each post.comments}}</p>
+  {{comment_body}} 
+  {{user.username}}
+ {{format_date created_at}}
+  {{else}}
+  <p>No comments</p>
+  {{/each}}
+  </div>

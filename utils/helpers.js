@@ -11,5 +11,12 @@ module.exports = {
   format_date: (date) => {
     return date.toLocaleDateString();
   },
+  //if one comment on a post, 'comments' wont be plural
+  make_plural: (comment, length) => {
+   if(length > 1){
+     return `${comment}s`
+   }
+   return comment
+  },
 
 }
