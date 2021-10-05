@@ -19,16 +19,18 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="title">Edit Post: {{title}}</h5>
+                <h5 id="title">Editing Post: {{title}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-title">
+            <div class="modal-title" style="margin: 0 auto;">
+                 <h5 id="title">Edit Title:</h5>
                 <textarea name="newTitle" placeholder="New Title" class="newTitle" id="title{{id}}" cols="40"
                     rows="1">{{title}}</textarea>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="margin: 0 auto;">
+                 <h5 id="title">Edit Body:</h5>
                 <textarea name="newBody" class="newBody" id="body{{id}}" cols="40" rows="9">{{post_body}}</textarea>
             </div>
             <div class="modal-footer">
@@ -73,13 +75,13 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Create New Post</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-title">
-                <h5>Title:</h5>
+            <div class="modal-title" style="margin: 0 auto;">
+                <h5 style="text-align: center;">Title:</h5>
                 <textarea name="newPostTitle" placeholder="Post Title" class="newPostTitle" cols="40"
                     rows="1"></textarea>
             </div>
-            <div class="modal-body">
-                <h5>Post Content</h5>
+            <div class="modal-body" style="margin: 0 auto;">
+                <h5 style="text-align: center;">Post Content</h5>
                 <textarea name="postBody" class="postBody" cols="40" rows="9"></textarea>
             </div>
             <div class="modal-footer">
