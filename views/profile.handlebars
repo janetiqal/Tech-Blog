@@ -1,5 +1,5 @@
 <h1 id="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
-<button type="button" class="btn btn-success"id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+<button type="button" class="btn btn-success" id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
     data-target=".createPost">CREATE NEW POST</button>
 
 {{#if postlength}}
@@ -8,8 +8,8 @@
     <h2 class="card-header">Title: {{title}}</h2>
     <span class="post-spans"> <button type="button" class="btn btn-warning" data-toggle="modal" id="edit-post"
             data-target="#post{{id}}"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
-        <button class="btn-danger" id="delete-post" data-toggle="modal" 
-            data-target="#deletePost{{id}}"><i class="fas fa-trash-alt"></i></button></span>
+        <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deletePost{{id}}"><i
+                class="fas fa-trash-alt"></i></button></span>
     <p>{{post_body}}</p>
     <p>Written by: {{user.username}} {{format_date created_at}}</p>
 </div>
@@ -41,12 +41,11 @@
 </div>
 
 {{!-- {{Delete Post Warning MODAL}} --}}
-<div class="modal fade" id="deletePost{{id}}" data-bs-keyboard="false" tabindex="-1"
-     aria-hidden="true">
+<div class="modal fade" id="deletePost{{id}}" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" >Delete Post: {{title}}</h5>
+                <h5 class="modal-title">Delete Post: {{title}}</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -65,8 +64,7 @@
 <h1>No Posts yet.</h1>
 {{/if}}
 
-{{!-- {{CREATE NEW Post w a static Modal}} --}}
-    {{!-- {{had to be outside of if statement}} --}}
+{{!-- {{CREATE NEW Post w a static Modal, had to be outside of if statement}}} --}}
 <div class="modal fade createPost" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -1,2 +1,3 @@
-//delete a comment
 //post a comment 
+
+console.log("comment js connected")

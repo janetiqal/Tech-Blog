@@ -3,7 +3,7 @@ const { Comment, Post, User } = require('../models')
 const withAuth = require("../utils/authorization")
 
 
-
+//HOMEPAGE: user sees all posts
 router.get('/', async (req, res) => {
     console.log("the session:", req.session)
     try {
@@ -51,7 +51,7 @@ router.get('/login', (req, res) => {
 });
 
 //user clicks on a POST on homepage and is taken to a page with only that POST
-    //must be logged in
+//must be logged in
 router.get('/post/:id', withAuth, async (req, res) => {
     console.log(req.session)
     try {
@@ -81,7 +81,6 @@ router.get('/post/:id', withAuth, async (req, res) => {
         }
         const post = singlePost.get({ plain: true })
         console.log(post)
-       
 
         res.render('single-post', {
             post,

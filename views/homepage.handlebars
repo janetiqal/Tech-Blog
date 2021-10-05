@@ -1,3 +1,5 @@
+{{!-- NEEDS STYLING --}}
+
 {{#each posts as |post|}}
 <div class="card card-post">
   <h2 class="card-header">{{title}}</h2>
@@ -6,18 +8,10 @@
 
   <p>Written by: {{user.username}}, {{format_date created_at}}</p>
 
-  {{!-- <p>{{#each comments}}</p>
-  {{comment_body}}
-  {{user.username}}
-  {{format_date created_at}}
-  {{else}}
-  <p>No comments</p>
-  {{/each}} --}}
-
   {{#if comments.length}}
   <a href="/post/{{id}}"> {{comments.length}} {{make_plural "comment"comments.length}}</a>
   {{else}}
-  <a href="/post/{{id}}">Be the first to add a comment</a>
+  <a href="/post/{{id}}">Share your thoughts on {{user.username}}'s post.</a>
   {{/if}}
 
 </div>
