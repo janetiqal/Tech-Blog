@@ -79,6 +79,8 @@ router.get('/post/:id', withAuth, async (req, res) => {
         if (!singlePost) {
             return res.status(404).json({ message: "No Post found." })
         }
+        
+
         const post = singlePost.get({ plain: true })
         console.log(post)
 

@@ -1,5 +1,5 @@
 console.log("login/signup js connected")
-// const { sendAlert }=require(`../../utils/authorization`)
+// const  sendAlert =require('../../utils/function')
 
 //login JS
 const loginFormHandler = async (event) => {

@@ -81,3 +81,11 @@ nav{
     font-weight: bold;
     color:royalblue;
 }
+/*add comment button on single post page*/
+#new-comment{
+    max-width: fit-content;
+    margin-left: auto;
+    display: inline;
+    color: black;
+    background-color: royalblue;
+}

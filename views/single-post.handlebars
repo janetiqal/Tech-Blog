@@ -1,29 +1,55 @@
-<button type="button" class="btn" id="new-comment" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-    data-target=".addComment">Add A Comment</button>
-
 <div class="card card-post">
     <h2 class="card-header">{{post.title}}</h2>
 
     <p>{{post.post_body}}</p>
 
     <p>Written by: {{post.user.username}}, {{format_date post.created_at}}</p>
+
+    <button type="button" class="btn" id="new-comment" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+        data-target=".addComment">Add A Comment</button>
 </div>
 
 {{!STYLE THIS}}
 {{#if post.comments}}
-<section class="card">
+{{!-- <section class="card"> --}}
     <div class="card-header">
         <h3>Comments</h3>
     </div>
-    <div class="card-body">
-        {{#each post.comments}}
-      <div>
-            <p>{{comment_body}}</p>
-           <p>&mdash; {{user.username}}, {{format_date created_at}}</p>
-      </div>
-        {{/each}}
+    {{#each post.comments}}
+    <section class="card">
+        <div class="card-body">
+            <p>{{comment_body}} <span class="post-spans"> <button type="button" class="btn btn-warning"
+                        data-toggle="modal" id="edit-post" data-target="#commentPost{{id}}"><i
+                            class="far fa-edit"></i></button>&nbsp;&nbsp;
+                    <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deletePost{{id}}"><i
+                            class="fas fa-trash-alt"></i></button></span> </p>
+        
+            <p> &mdash; {{user.username}}, {{format_date created_at}} {{id}}</p>
+
+        </div>
+    </section>
+
+    <div class="modal fade" id="deletePost{{id}}" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Post: {{title}}</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete the {{title}} post?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger delete-comment" data-dismiss="modal"
+                    data-id={{id}}>Delete</button>
+            </div>
+        </div>
     </div>
-</section>
+</div>
+    {{/each}}
+    {{!--
+</section> --}}
 {{/if}}
 
 {{!-- {{Add a comment Modal}} --}}
@@ -44,7 +70,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" data-bs-dismiss="modal" class="btn btn-primary new-post">Submit</button>
+                <button type="button" data-bs-dismiss="modal" class="btn btn-primary newComment">Submit</button>
             </div>
         </div>
     </div>

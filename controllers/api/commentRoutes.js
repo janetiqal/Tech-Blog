@@ -40,9 +40,13 @@ router.get('/:id', async (req,res)=>{
 })
 
 // delete a comment if youre a user
-router.delete('/:id', async (req,res)=>{
+router.delete('/:id', withAuth, async (req,res)=>{
+    console.log(req.session.user_id)
+    console.log(Comment.user_id)
     try{
+        // if(req.session.user_id === Comment.user_id){
         const oneComment= await Comment.destroy({
+            include:[user_id],
             where:{
                 id: req.params.id
             }
@@ -52,27 +56,25 @@ router.delete('/:id', async (req,res)=>{
         }
         res.status(200).json(oneComment)
     }
+// }
     catch(err){
         res.status(400).json(err)
     }
-
 })
 
 //create a comment 
 router.post('/', withAuth, async (req,res)=>{
     try{
         const newComment = await Comment.create({
-            body: req.body.body,
+            comment_body: req.body.comment_body,
             post_id: req.body.post_id,
-            user_id:req.body.user_id
-            //should add a hook to the model to trim the input
-        })
+            user_id:req.session.user_id
+        })        
         res.status(200).json(newComment)
     }
     catch(err){
         res.status(400).json(err)
     }
-
 })
 //update a comment 
 router.put('/:id', withAuth, async (req,res)=>{
