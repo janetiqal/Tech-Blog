@@ -42,11 +42,10 @@ router.get('/:id', async (req,res)=>{
 // delete a comment if youre a user
 router.delete('/:id', withAuth, async (req,res)=>{
     console.log(req.session.user_id)
-    console.log(Comment.user_id)
     try{
         // if(req.session.user_id === Comment.user_id){
         const oneComment= await Comment.destroy({
-            include:[user_id],
+         
             where:{
                 id: req.params.id
             }

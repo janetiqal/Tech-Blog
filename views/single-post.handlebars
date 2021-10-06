@@ -11,33 +11,27 @@
 
 {{!STYLE THIS}}
 {{#if post.comments}}
-{{!-- <section class="card"> --}}
-    <div class="card-header">
-        <h3>Comments</h3>
+<div class="card-header">
+    <h3>Comments</h3>
+</div>
+{{#each post.comments}}
+<section class="card">
+    <div class="card-body">
+        <p>{{comment_body}} <span class="post-spans">&nbsp;&nbsp;
+                <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deleteComment{{id}}"><i
+                        class="fas fa-trash-alt"></i></button></span></p>
+
+        <p> &mdash; {{user.username}}, {{format_date created_at}}</p>
+        <p id="userId{{id}}" style="display:none;">{{user_id}}</p>
     </div>
-    {{#each post.comments}}
-    <section class="card">
-        <div class="card-body">
-            <p>{{comment_body}} <span class="post-spans"> <button type="button" class="btn btn-warning"
-                        data-toggle="modal" id="edit-post" data-target="#commentPost{{id}}"><i
-                            class="far fa-edit"></i></button>&nbsp;&nbsp;
-                    <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deletePost{{id}}"><i
-                            class="fas fa-trash-alt"></i></button></span> </p>
-        
-            <p> &mdash; {{user.username}}, {{format_date created_at}} {{id}}</p>
+</section>
 
-        </div>
-    </section>
-
-    <div class="modal fade" id="deletePost{{id}}" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+{{!delete comment modal}}
+<div class="modal fade" id="deleteComment{{id}}" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete Post: {{title}}</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete the {{title}} post?</p>
+                <p>Are you sure you want to delete this comment?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -47,9 +41,8 @@
         </div>
     </div>
 </div>
-    {{/each}}
-    {{!--
-</section> --}}
+{{/each}}
+
 {{/if}}
 
 {{!-- {{Add a comment Modal}} --}}
