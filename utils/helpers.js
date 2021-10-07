@@ -18,6 +18,14 @@ module.exports = {
    }
    return comment
   },
+  //NOT WORKING
+ isEqual: (x,y) =>{
+    if( x===y){
+        return true
+    }
+    return false
+  },
+
 
   //  sendAlert: (status, color, element) => {
   //   $(".bootstrap-growl").remove();

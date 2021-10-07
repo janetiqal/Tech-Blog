@@ -51,6 +51,7 @@ const commentEventHandler= async (event)=>{
 const commentBtn = document.querySelector('.newComment').addEventListener('click', commentEventHandler)
 
 
+
 //Delete Post JS
 const deleteCommentHandler = async (event) => {
     event.preventDefault();
@@ -58,12 +59,16 @@ const deleteCommentHandler = async (event) => {
     const commentId = event.target.getAttribute('data-id')
     console.log(commentId)
 
+    // user_id of the comment writer:
     const user_id = document.getElementById(`userId${commentId}`).textContent
     console.log("user id",user_id)
-    //comapre user_id of the comment to the user_id of the person signed in
+
+        //TO DO: get the session id from session storage and compare to user_id of the comment
+
+ 
 
     const response = await fetch(`/api/comments/${commentId}`, {
-        method: 'DELETE',
+        // method: 'DELETE',
         body: JSON.stringify({ id: commentId }),
         headers: { 'Content-Type': 'application/json' }
     })
@@ -75,5 +80,7 @@ const deleteCommentHandler = async (event) => {
         alert(response.statusText)
     }
 }
+
+
 const deleteBtns = document.querySelectorAll('.delete-comment');
 [...deleteBtns].forEach(deleteBtn => deleteBtn.addEventListener('click', deleteCommentHandler))

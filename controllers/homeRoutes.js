@@ -80,13 +80,13 @@ router.get('/post/:id', withAuth, async (req, res) => {
             return res.status(404).json({ message: "No Post found." })
         }
         
-
         const post = singlePost.get({ plain: true })
         console.log(post)
 
         res.render('single-post', {
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            user: req.session.user_id,
         });
     }
     catch (err) {
