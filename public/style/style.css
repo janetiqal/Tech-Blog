@@ -68,9 +68,17 @@ nav{
    font-size: 2em;
    padding-top:15px ;
 }
+.welcomeProfile{
+    display: grid;
+    
+}
 #new-post{
    font-family: 'Share Tech Mono', monospace;
-    margin-top: 15px;
+    /* margin-top: 15px; */
+    display: inline-flex;
+    justify-content: flex-end;
+    max-width: fit-content;
+    justify-self: center;
 
 }
 #comment-btn{
@@ -89,3 +97,27 @@ nav{
     color: black;
     background-color: royalblue;
 }
+.cmntLink{
+    text-decoration: none;
+    color: cornflowerblue;
+    font-family: 'Share Tech Mono', monospace;
+    margin-left: auto;
+}
+@media screen and (max-width:375px){
+	body{
+		width:auto;
+		/* background-image: url('../image/iphonesize.jpg'); */
+	}
+	.navbar-brand{
+        font-size: 40px;
+    }
+    #dashboardHeader{
+        font-size: 24px;
+    }
+    #new-post{
+        font-size: small;
+    }
+    .post-spans{
+
+    }
+}   

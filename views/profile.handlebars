@@ -1,7 +1,9 @@
-<h1 id="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
-{{!ADD STYLING TO THIS BUTTON--PICK A THEME/COLORS FOR SITE}}
-<button type="button" class="btn btn-success" id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-    data-target=".createPost">CREATE NEW POST</button>
+<div class="welcomeProfile" >
+    <h1 id="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
+    {{!ADD STYLING TO THIS BUTTON--PICK A THEME/COLORS FOR SITE}}
+    <button type="button" class="btn btn-success" id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+        data-target=".createPost">CREATE NEW POST</button>
+</div>
 
 {{#if postlength}}
 {{#each posts as |post|}}
