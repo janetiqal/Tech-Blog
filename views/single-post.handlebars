@@ -13,7 +13,6 @@
 
 {{!STYLE THIS}}
 {{#if post.comments}}
-<p>{{user}}</p>
 
 <div class="card-header">
     <h3>Comments</h3>
@@ -21,18 +20,14 @@
 {{#each post.comments}}
 <section class="card">
     <div class="card-body">
-
-        <p>{{comment_body}} </p>
-
-        {{!-- {{#if (isEqual user user_id)}} --}}
-        <span class="post-spans">&nbsp;&nbsp;
+        {{#if (isEqual ../user user_id) }}
+        <p>{{comment_body}}  <span class="post-spans">&nbsp;&nbsp;
             <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deleteComment{{id}}"><i
-                    class="fas fa-trash-alt"></i></button></span>
-        {{!-- {{else}} --}}
-        <p>not working.</p>
-        {{!-- {{/if}} --}}
+                    class="fas fa-trash-alt"></i></button></span></p>
+        {{else}}
+        <p>{{comment_body}}</p>
+        {{/if}}
         <p> &mdash; {{user.username}}, {{format_date created_at}} {{user_id}}</p>
-
         <p id="userId{{id}}" style="display:none;">{{user_id}}</p>
 
     </div>

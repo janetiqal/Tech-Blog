@@ -1,3 +1,4 @@
+
 console.log("comment js connected")
 //add favicon to homepage
 //style the cards on homepage
@@ -63,21 +64,17 @@ const deleteCommentHandler = async (event) => {
     const user_id = document.getElementById(`userId${commentId}`).textContent
     console.log("user id",user_id)
 
-        //TO DO: get the session id from session storage and compare to user_id of the comment
-
  
-
     const response = await fetch(`/api/comments/${commentId}`, {
-        // method: 'DELETE',
+        method: 'DELETE',
         body: JSON.stringify({ id: commentId }),
         headers: { 'Content-Type': 'application/json' }
     })
     if (response.ok) {
         document.location.reload('/')
     }
-    else {
-        // change this after testing
-        alert(response.statusText)
+    if(response >=400) {
+        sendAlert("Can't Delete Other User Comments",".danger", ".nav")
     }
 }
 
