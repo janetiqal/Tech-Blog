@@ -53,6 +53,24 @@
     <main>
         {{{ body }}}
     </main>
+    <footer class="footer">
+        <div class="jumbotron ">
+            <div class="container-fluid">
+                <div class="row bg-light">
+                    <ul class="footer-nav">
+                            <a class="footer-link" aria-current="page" href="/">Home</a>
+                            <a class="footer-link"  aria-current="page" href="/dashboard">Dashboard</a>
+                            {{#if loggedIn}}
+                            <a  class="footer-link"  id="logout" href="/">Log Out</a>
+                            {{else}}
+                            <a  class="footer-link"  href="/login">Login</a>
+                            {{/if}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

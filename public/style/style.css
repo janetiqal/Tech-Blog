@@ -16,6 +16,17 @@ nav{
     right:0px;
     font-size: 1.8rem;
 }
+/*change display, add github icon */
+.footer-nav {
+    font-family: 'Share Tech Mono', monospace;
+    display: inline-grid;
+}
+.footer-link{
+    text-decoration: none;
+    color:black;
+    font-size: 1.5em;
+    margin: 0 auto;
+}
 /*styling the login and sign up cardoptions*/
 .card-dash{
     margin:40px 20px 0px 20px;
@@ -117,7 +128,7 @@ nav{
     #new-post{
         font-size: small;
     }
-    .post-spans{
+    /* .post-spans{
 
-    }
+    } */
 }   
