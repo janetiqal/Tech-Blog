@@ -1,8 +1,7 @@
 <div class="welcomeProfile" >
-    <h1 id="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
-    {{!ADD STYLING TO THIS BUTTON--PICK A THEME/COLORS FOR SITE}}
+    <h1 class="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
     <button type="button" class="btn btn-success" id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-        data-target=".createPost">CREATE NEW POST</button>
+        data-target=".createPost">NEW POST</button>
 </div>
 
 {{#if postlength}}
@@ -13,8 +12,10 @@
             data-target="#post{{id}}"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
         <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deletePost{{id}}"><i
                 class="fas fa-trash-alt"></i></button></span>
-    <p>{{post_body}}</p>
-    <p>Written by: {{user.username}} {{format_date created_at}}</p>
+    <div class="format">
+        <p>{{post_body}}</p>
+        <p>{{format_date created_at}}</p>
+    </div>
 </div>
 
 {{!-- {{EDIT POST MODAL}} --}}
@@ -66,10 +67,10 @@
 </div>
 {{/each}}
 {{else}}
-<h1>No Posts yet.</h1>
+<h1 class="dashboardHeader"style="padding-top: 50px;">No Posts to Display</h1>
 {{/if}}
 
-{{!-- {{CREATE NEW Post w a static Modal, had to be outside of if statement}}} --}}
+{{!-- {{CREATE NEW Post w a static Modal}} --}}
 <div class="modal fade createPost" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -85,7 +86,7 @@
             </div>
             <div class="modal-body" style="margin: 0 auto;">
                 <h5 style="text-align: center;">Post Content</h5>
-                <textarea name="postBody" class="postBody" cols="40" rows="9"></textarea>
+            <textarea name="postBody"  wrap="soft" class="postBody" cols="40" rows="9"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

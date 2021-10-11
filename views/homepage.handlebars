@@ -7,13 +7,15 @@
 
     <p>{{post_body}}</p>
   
-    <p>Written by: {{user.username}}, {{format_date created_at}}</p>
-  
-    {{#if comments.length}}
-    <a class="cmntLink" href="/post/{{id}}"> {{comments.length}} {{make_plural "comment"comments.length}}</a>
-    {{else}}
-    <a class="cmntLink" href="/post/{{id}}">Add A Comment</a>
-    {{/if}}
+   <div class="homepageFormat">
+      <p style="margin-right:10px;"> &mdash;{{user.username}}, {{format_date created_at}}</p>
+    
+      {{#if comments.length}}
+      <a class="cmntLink" href="/post/{{id}}"> {{comments.length}} {{make_plural "comment"comments.length}}</a>
+      {{else}}
+      <a class="cmntLink" href="/post/{{id}}">Add A Comment</a>
+      {{/if}}
+   </div>
   
 
 </div>

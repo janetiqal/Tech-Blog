@@ -60,11 +60,6 @@ const deleteCommentHandler = async (event) => {
     const commentId = event.target.getAttribute('data-id')
     console.log(commentId)
 
-    // user_id of the comment writer:
-    const user_id = document.getElementById(`userId${commentId}`).textContent
-    console.log("user id",user_id)
-
- 
     const response = await fetch(`/api/comments/${commentId}`, {
         method: 'DELETE',
         body: JSON.stringify({ id: commentId }),

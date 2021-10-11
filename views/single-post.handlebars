@@ -2,34 +2,34 @@
     <h2 class="card-header">{{post.title}}</h2>
 
     <p>{{post.post_body}}</p>
+    <div style="display:inline-flex">
+        <p> &mdash;{{post.user.username}}, {{format_date post.created_at}}</p>
 
-    <p>Written by: {{post.user.username}}, {{format_date post.created_at}}</p>
-
-    <button type="button" class="btn" id="new-comment" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-        data-target=".addComment">Add A Comment</button>
+        <button type="button" class="btn" id="new-comment" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            data-target=".addComment">Add A Comment</button>
+    </div>
 </div>
 
 
 
 {{!STYLE THIS}}
-{{#if post.comments}}
 
-<div class="card-header">
+
+<div style="width:65%; margin: 0 auto; margin-top:50px; border:1px solid black;"class="card-header">
     <h3>Comments</h3>
 </div>
+{{#if post.comments}}
 {{#each post.comments}}
-<section class="card">
-    <div class="card-body">
+<section class="card"  style="width:65%; margin:0 auto;">
+    <div class="card-body" style="margin: 0 0 10px;">
         {{#if (isEqual ../user user_id) }}
-        <p>{{comment_body}}  <span class="post-spans">&nbsp;&nbsp;
-            <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deleteComment{{id}}"><i
-                    class="fas fa-trash-alt"></i></button></span></p>
+        <p>{{comment_body}} <span class="post-spans">&nbsp;&nbsp;
+                <button class="btn-danger" id="delete-post" data-toggle="modal" data-target="#deleteComment{{id}}"><i
+                        class="fas fa-trash-alt"></i></button></span></p>
         {{else}}
         <p>{{comment_body}}</p>
         {{/if}}
-        <p> &mdash; {{user.username}}, {{format_date created_at}} {{user_id}}</p>
-        <p id="userId{{id}}" style="display:none;">{{user_id}}</p>
-
+        <p style="margin-block-end:auto;"> &mdash; {{user.username}}, {{format_date created_at}}</p>
     </div>
 </section>
 

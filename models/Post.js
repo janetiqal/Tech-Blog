@@ -21,7 +21,7 @@ Post.init({
     },
     //content of post
     post_body: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         //validation
     },

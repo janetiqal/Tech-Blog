@@ -20,6 +20,12 @@ nav{
     font-size: 1.8rem;
 }
 /*change display, add github icon */
+.footer{
+    /* error herew footer display */
+    /* position: relative; */
+    bottom: 0;
+    width: 100%;
+}
 .footer-nav {
     font-family: 'Share Tech Mono', monospace;
     display: inline-grid;
@@ -27,7 +33,7 @@ nav{
 .footer-link{
     text-decoration: none;
     color:black;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 0 auto;
 }
 /*styling the login and sign up cardoptions*/
@@ -56,6 +62,10 @@ nav{
     font-family: 'Share Tech', sans-serif;
 }
 
+.homepageFormat{
+    display:inline-flex;
+    margin-inline-start: auto;
+}
 /*new post input-content*/
 #post-body{
     height: 150px;
@@ -76,7 +86,7 @@ nav{
     padding-top: 3px;
 }
 /*dashboard welcome header*/
-#dashboardHeader{
+.dashboardHeader{
    text-align: center;
    font-family: 'Share Tech Mono', monospace;
    font-size: 2em;
@@ -84,7 +94,6 @@ nav{
 }
 .welcomeProfile{
     display: grid;
-    
 }
 #new-post{
    font-family: 'Share Tech Mono', monospace;
@@ -106,8 +115,8 @@ nav{
 /*add comment button on single post page*/
 #new-comment{
     max-width: fit-content;
-    margin-left: auto;
-    display: inline;
+    margin-block-end: auto;
+    margin-left:auto;
     color: black;
     background-color: royalblue;
 }
@@ -120,7 +129,6 @@ nav{
 @media screen and (max-width:375px){
 	body{
 		width:auto;
-		/* background-image: url('../image/iphonesize.jpg'); */
 	}
 	.navbar-brand{
         font-size: 40px;

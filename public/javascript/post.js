@@ -30,12 +30,19 @@ const createPostHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('.newPostTitle').value.trim()
     const post_body = document.querySelector('.postBody').value.trim()
+    // const newPost= nl2br(post_body)
+    // function nl2br(str, replaceMode, isXhtml) {
 
+    //     var breakTag = (isXhtml) ? '<br />' : '<br>';
+    //     var replaceStr = (replaceMode) ? '$1' + breakTag : '$1' + breakTag + '$2';
+    //     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
+    // }
+ 
     console.log(title, post_body)
     if (title && post_body) {
         const response = await fetch('api/post', {
             method: 'POST',
-            body: JSON.stringify({ title: title, post_body: post_body }),
+            body: JSON.stringify({ title, post_body }),
             headers: { 'Content-Type': 'application/json' },
         })
         if (response.ok) {

@@ -1,10 +1,10 @@
 const express = require('express');
-const path= require("path")
+const path = require("path")
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const helpers= require("./utils/helpers")
+const helpers = require("./utils/helpers")
 require('dotenv').config()
 
 const sequelize = require('./config/connection');
@@ -18,20 +18,20 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: "testingdeploment", 
-    // secret: process.env.SECRET,
-    cookie: {
-      // session is set to 10min before expiration
-      maxAge: 600000
-    },
-    resave: false,
-    //session exipiration resets everytime a request is made by user
-    rolling: true,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
-  };
+  secret: "testingdeploment",
+  // secret: process.env.SECRET,
+  cookie: {
+    // session is set to 10min before expiration
+    maxAge: 600000
+  },
+  resave: false,
+  //session exipiration resets everytime a request is made by user
+  rolling: true,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
 app.use(session(sess));
 
