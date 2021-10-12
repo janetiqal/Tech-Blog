@@ -1,24 +1,21 @@
-{{!-- NEEDS STYLING --}}
-
 {{#each posts as |post|}}
 <div class="card card-post">
   <h2 class="card-header">{{title}}</h2>
+  <p>{{post_body}}</p>
 
+  <div class="homepageFormat">
+    <p style="margin-right:10px;"> &mdash;{{user.username}}, {{format_date created_at}}</p>
+    {{#if comments.length}}
+    <a class="cmntLink" href="/post/{{id}}"> {{comments.length}} {{make_plural "comment"comments.length}}</a>
+    {{else}}
+    <a class="cmntLink" href="/post/{{id}}">Add A Comment</a>
+    {{/if}}
+  </div>
 
-    <p>{{post_body}}</p>
-  
-   <div class="homepageFormat">
-      <p style="margin-right:10px;"> &mdash;{{user.username}}, {{format_date created_at}}</p>
-    
-      {{#if comments.length}}
-      <a class="cmntLink" href="/post/{{id}}"> {{comments.length}} {{make_plural "comment"comments.length}}</a>
-      {{else}}
-      <a class="cmntLink" href="/post/{{id}}">Add A Comment</a>
-      {{/if}}
-   </div>
-  
 
 </div>
 {{else}}
-<h1>NO POSTS</h1>
+<div style="margin:0 auto; display:flex; font-family: 'Share Tech Mono', monospace; padding:30px;">
+  <h2 style="display:inline-flex; margin: 0 auto;">NO POSTS YET</h2>
+</div>
 {{/each}}

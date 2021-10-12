@@ -63,9 +63,7 @@ nav{
     width: 65%;
     font-family: 'Share Tech', sans-serif;
 }
-.eachComment:nth-child(even) {
-  color: red;
-}
+
 .homepageFormat{
     display:inline-flex;
     margin-inline-start: auto;
@@ -137,5 +135,8 @@ nav{
     }
     #new-post{
         font-size: small;
+    }
+    .footer-link{
+        font-size: 1em;
     }
 }   

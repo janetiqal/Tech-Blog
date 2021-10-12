@@ -1,4 +1,4 @@
-<div class="welcomeProfile" >
+<div class="welcomeProfile">
     <h1 class="dashboardHeader">WELCOME TO YOUR PROFILE,</br><span id="username">{{username}}!</span> </h1>
     <button type="button" class="btn btn-success" id="new-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
         data-target=".createPost">NEW POST</button>
@@ -29,12 +29,12 @@
                 </button>
             </div>
             <div class="modal-title" style="margin: 0 auto;">
-                 <h5 id="title">Edit Title:</h5>
+                <h5 id="title">Edit Title:</h5>
                 <textarea name="newTitle" placeholder="New Title" class="newTitle" id="title{{id}}" cols="40"
                     rows="1">{{title}}</textarea>
             </div>
             <div class="modal-body" style="margin: 0 auto;">
-                 <h5 id="title">Edit Body:</h5>
+                <h5 id="title">Edit Body:</h5>
                 <textarea name="newBody" class="newBody" id="body{{id}}" cols="40" rows="9">{{post_body}}</textarea>
             </div>
             <div class="modal-footer">
@@ -67,7 +67,7 @@
 </div>
 {{/each}}
 {{else}}
-<h1 class="dashboardHeader"style="padding-top: 50px;">No Posts to Display</h1>
+<h1 class="dashboardHeader" style="padding-top: 50px;">No Posts to Display</h1>
 {{/if}}
 
 {{!-- {{CREATE NEW Post w a static Modal}} --}}
@@ -86,7 +86,7 @@
             </div>
             <div class="modal-body" style="margin: 0 auto;">
                 <h5 style="text-align: center;">Post Content</h5>
-            <textarea name="postBody"  wrap="soft" class="postBody" cols="40" rows="9"></textarea>
+                <textarea name="postBody" wrap="soft" class="postBody" cols="40" rows="9"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

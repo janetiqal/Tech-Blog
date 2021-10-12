@@ -1,5 +1,14 @@
 console.log("post js connected")
 
+function sendAlert(status, color, element) {
+    $(".bootstrap-growl").remove();
+    $.bootstrapGrowl(status, {
+        ele: element,
+        type: color,
+        align: 'center',
+        delay: 2000,
+    });
+}
 //edit post js
 const editPostHandler = async (event) => {
     event.preventDefault();
@@ -20,6 +29,9 @@ const editPostHandler = async (event) => {
     if (response.ok) {
         document.location.reload('/dashboard')
     }
+    if(response.status >=400){
+        sendAlert("Error Editing Post", "danger","#new-post")
+    }
 }
 
 const updateBtns = document.querySelectorAll('.update-post');
@@ -30,14 +42,11 @@ const createPostHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('.newPostTitle').value.trim()
     const post_body = document.querySelector('.postBody').value.trim()
-    // const newPost= nl2br(post_body)
-    // function nl2br(str, replaceMode, isXhtml) {
 
-    //     var breakTag = (isXhtml) ? '<br />' : '<br>';
-    //     var replaceStr = (replaceMode) ? '$1' + breakTag : '$1' + breakTag + '$2';
-    //     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replaceStr);
-    // }
- 
+    if(!title || !post_body){
+        sendAlert("Can't create a post with out body or title.", "danger","#new-post")
+    }
+
     console.log(title, post_body)
     if (title && post_body) {
         const response = await fetch('api/post', {
@@ -48,9 +57,8 @@ const createPostHandler = async (event) => {
         if (response.ok) {
             document.location.reload('/dashboard')
         }
-        else {
-            alert(response.statusText)
-            console.log(response.statusText)
+        if(response.statusText === "Bad Request"){
+            sendAlert("Error creating Post", "danger","#new-post")
         }
     }
 }
@@ -71,9 +79,8 @@ const deletePostHandler = async (event) => {
     if (response.ok) {
         document.location.reload('/dashboard')
     }
-    else {
-        // change this after testing
-        alert(response.statusText)
+    if(response.status >=400){
+        sendAlert("Error Deleting Post", "danger","#new-post")
     }
 }
 const deleteBtns = document.querySelectorAll('.delete-post');

@@ -25,9 +25,9 @@ const loginFormHandler = async (event) => {
         }
         if (response.status === 400) {
             sendAlert("Incorrect email or password, please try again.", 'danger', '.login-btn');
-            
+
         }
-        else if(response.status >= 500) {
+        else if (response.status >= 500) {
             sendAlert("Server Error, unable to login", 'danger', '.login-btn');
         }
     }
@@ -77,6 +77,6 @@ const signupFormHandler = async (event) => {
     }
 }
 
-    document.querySelector('.login-form').addEventListener('submit', loginFormHandler)
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler)
 
-    document.querySelector('.signup-form').addEventListener('submit', signupFormHandler)
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler)

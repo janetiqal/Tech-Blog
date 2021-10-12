@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const { capitalLetter } = require('../utils/helpers.js');
 
-class Post extends Model {}
+class Post extends Model { }
 
 Post.init({
     id: {
@@ -33,21 +33,21 @@ Post.init({
         },
     }
 },
-{
-    // added hooks to capitlize every letter in the Title 
-    hooks:{
-        beforeCreate: async (newPost)=>{
-            newPost.title= await capitalLetter(newPost.title)
-            return
+    {
+        // added hooks to capitlize every letter in the Title 
+        hooks: {
+            beforeCreate: async (newPost) => {
+                newPost.title = await capitalLetter(newPost.title)
+                return
+            },
+            beforeUpdate: async (updatePost) => {
+                updatePost.title = await capitalLetter(updatePost.title)
+                return
+            }
         },
-        beforeUpdate: async (updatePost)=>{
-            updatePost.title= await capitalLetter(updatePost.title)
-            return
-        }
-    },
 
         sequelize,
-        timestamps:true,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'post'
