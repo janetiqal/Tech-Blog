@@ -50,9 +50,9 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-//user clicks on a POST on homepage and is taken to a page with only that POST
-//must be logged in
-router.get('/post/:id', withAuth, async (req, res) => {
+//user clicks on a POST on homepage and is taken to a page with only that POST and its comments
+    //dont have to be logged in
+router.get('/post/:id', async (req, res) => {
     console.log(req.session)
     try {
         const singlePost = await Post.findOne({

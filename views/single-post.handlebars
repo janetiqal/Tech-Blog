@@ -4,9 +4,10 @@
     <p>{{post.post_body}}</p>
     <div style="display:inline-flex">
         <p> &mdash;{{post.user.username}}, {{format_date post.created_at}}</p>
-
+        {{#if loggedIn}}
         <button type="button" class="btn" id="new-comment" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
             data-target=".addComment">Add A Comment</button>
+        {{/if}}
     </div>
 </div>
 
