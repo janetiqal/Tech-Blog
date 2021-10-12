@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  // secret: "testingdeploment",
   secret: process.env.SECRET,
   cookie: {
     // session is set to 10min before expiration
