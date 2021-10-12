@@ -9,6 +9,7 @@ This is an CMS-style blog app that allows users to either sign in or sign-up and
 - [Features](#features)
 - [Link to Deployed App](#link-to-deployed-app)
 - [Technologies](#technologies)
+- [User Story](#user-story)
 - [ScreenShot](#screenshot)
 - [License](#license)
 - [Questions](#questions)
@@ -29,8 +30,20 @@ Technologies used to create an MVC App:
 - Handlebars.js was used as the template engine for this app.
 - bcrypt to has user passwords, dotenv was used to store enviornment variables.
 
+## User Story
+
+```md
+AS A developer who writes about tech
+I WANT a CMS-style blog site
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
+```
+
 ## Screenshot
-I chose a minimilistic styling approach. 
+I chose a minimilistic styling approach. <br>
+<img width="500" alt="homepage" src="https://user-images.githubusercontent.com/84414488/137014528-51c02354-173e-4b16-bf6f-50b43292e8b0.png"> <br>
+<img width="500" alt="comment" src="https://user-images.githubusercontent.com/84414488/137014569-394de468-30d1-4e76-a59f-abe1a6251a20.png"><br>
+<img width="500" alt="dashboard" src="https://user-images.githubusercontent.com/84414488/137014576-695393e7-b2ad-4d6f-92db-221597f57871.png">
+
 
 ## License 
   This project is covered by the license of: [MIT](https://opensource.org/licenses/MIT)
