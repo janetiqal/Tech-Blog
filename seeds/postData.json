@@ -1,12 +1,12 @@
 [
     {
         "title":"Coding with partners",
-        "post_body":"Its always a good idea to code with people, you can...",
+        "post_body":"Its always a good idea to code with people, you can it will only make you a stronger coder in the long run. Plus, it is always nice to show someone your code when you have been trying to clear an error but just can't spot it. Nothing is better than a quick fix!",
         "user_id":1
     },
     {
         "title":"Coding is a work in progess",
-        "post_body":"You wont get good at this overnight,...",
+        "post_body":"You wont get good at this overnight,it is important to not be discouraged when things get difficult--because it will. This field is not for the faint of heart, take your time, code when you can. There is a lot of great resources out there, expose yourself to as much as possible and soak it all in.",
         "user_id":2
     }
 ]

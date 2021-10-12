@@ -56,16 +56,18 @@
     <footer class="footer">
         <div class="jumbotron">
             <div class="container-fluid">
-                <div class="row bg-light">
+                <div class="row bg-light" style="padding:4px;">
                     <ul class="footer-nav">
-                            <a class="footer-link" aria-current="page" href="/">Home</a>
-                            <a class="footer-link"  aria-current="page" href="/dashboard">Dashboard</a>
-                            {{#if loggedIn}}
-                            <a  class="footer-link"  id="logout" href="/">Log Out</a>
-                            {{else}}
-                            <a  class="footer-link"  href="/login">Login</a>
-                            {{/if}}
-                        </li>
+                        <a class="footer-link" aria-current="page" href="/">Home</a>
+                        <a class="footer-link" aria-current="page" href="/dashboard">Dashboard</a>
+                        {{#if loggedIn}}
+                        <a class="footer-link" id="logout" href="/">Log Out</a>
+                        {{else}}
+                        <a class="footer-link" href="/login">Login</a>
+                        {{/if}}
+
+                        <a class="footer-link" id="github" href="https://github.com/janetiqal">Janet Iqal <i
+                                class="fab fa-github"></i></a>
                     </ul>
                 </div>
             </div>

@@ -14,27 +14,29 @@ nav{
 }
 /*styling the nav bar options*/
 .styledNav{
-    /* position: relative; */
     bottom: 0px;
     right:0px;
     font-size: 1.8rem;
 }
-/*change display, add github icon */
 .footer{
     /* error herew footer display */
-    /* position: relative; */
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
 .footer-nav {
     font-family: 'Share Tech Mono', monospace;
-    display: inline-grid;
+    display: flex;    
+    margin: 0 auto;
 }
 .footer-link{
     text-decoration: none;
     color:black;
     font-size: 1.2em;
     margin: 0 auto;
+}
+.footer-link:hover{
+    color:black;
 }
 /*styling the login and sign up cardoptions*/
 .card-dash{
@@ -56,12 +58,14 @@ nav{
 /*new post section*/
 .card-post{
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     margin-top: 30px;
     width: 65%;
     font-family: 'Share Tech', sans-serif;
 }
-
+.eachComment:nth-child(even) {
+  color: red;
+}
 .homepageFormat{
     display:inline-flex;
     margin-inline-start: auto;
@@ -73,9 +77,6 @@ nav{
 .card-header{
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
-  
-    /* background-color:navy;
-    color:royalblue; */
 }
 
 /*the edit post icon and delete post icon in dashboard*/
@@ -97,12 +98,10 @@ nav{
 }
 #new-post{
    font-family: 'Share Tech Mono', monospace;
-    /* margin-top: 15px; */
     display: inline-flex;
     justify-content: flex-end;
     max-width: fit-content;
     justify-self: center;
-
 }
 #comment-btn{
    max-width: fit-content;
@@ -116,9 +115,9 @@ nav{
 #new-comment{
     max-width: fit-content;
     margin-block-end: auto;
+    font-family: 'Share Tech Mono', monospace;
     margin-left:auto;
-    color: black;
-    background-color: royalblue;
+    color:#4169e1;
 }
 .cmntLink{
     text-decoration: none;
@@ -139,7 +138,4 @@ nav{
     #new-post{
         font-size: small;
     }
-    /* .post-spans{
-
-    } */
 }   
