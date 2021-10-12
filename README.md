@@ -31,6 +31,10 @@ Technologies used to create an MVC App:
 
 ## Screenshot
 I chose a minimilistic styling approach. 
+<img width="200x200" alt="homepage" src="https://user-images.githubusercontent.com/84414488/137014528-51c02354-173e-4b16-bf6f-50b43292e8b0.png">
+<img width="633" alt="comment" src="https://user-images.githubusercontent.com/84414488/137014569-394de468-30d1-4e76-a59f-abe1a6251a20.png">
+<img width="893" alt="dashboard" src="https://user-images.githubusercontent.com/84414488/137014576-695393e7-b2ad-4d6f-92db-221597f57871.png">
+
 
 ## License 
   This project is covered by the license of: [MIT](https://opensource.org/licenses/MIT)
