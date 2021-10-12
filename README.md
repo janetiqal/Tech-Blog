@@ -2,7 +2,7 @@
   
 ## Description 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) </br>
-This is an CMS-style blog app that allows users to either sign in or sign-up and create blog posts, and engage with other users of the app by commenting on posts. Users are able to comment on other users posts, edit their posts, and delete their posts. Users  are also able to delete their comments on other users posts. This app was built following the Model View Controller framework.
+This is an CMS-style blog app that allows users to either sign in or sign-up and create blog posts, and engage with other users of the app by commenting on posts. Users are able to comment on other users posts, edit their posts, and delete their posts. Users are also able to delete or edit their comments on other users posts. This app was built following the Model View Controller framework using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 
 ## Table of Contents
@@ -23,7 +23,6 @@ This is an CMS-style blog app that allows users to either sign in or sign-up and
 The app is deployed on [Heroku](https://tech-blog-ji.herokuapp.com/).
 
 ## Technologies
-Technologies used to create an MVC App:
 - Node.js Express.js was used to create a RESTful API.
 - Express Session npm package was used for user authentication.
 - MySQL AND Sequelize ORM was used to create the database.
