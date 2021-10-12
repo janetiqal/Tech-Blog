@@ -10,6 +10,8 @@ function sendAlert(status, color, element) {
         delay: 2000,
     });
 }
+
+//Add A Comment JS
 const commentEventHandler = async (event) => {
     event.preventDefault();
 
@@ -51,12 +53,12 @@ const commentBtn = document.querySelector('.newComment').addEventListener('click
 
 
 
-//Delete Post JS
+//Delete Comment JS
 const deleteCommentHandler = async (event) => {
     event.preventDefault();
     // console.log(event.target)
     const commentId = event.target.getAttribute('data-id')
-    // console.log(commentId)
+    console.log(commentId)
 
     const response = await fetch(`/api/comments/${commentId}`, {
         method: 'DELETE',
@@ -67,10 +69,35 @@ const deleteCommentHandler = async (event) => {
         document.location.reload('/')
     }
     if (response >= 400) {
-        sendAlert("Can't Delete Other User Comments", ".danger", ".nav")
+        sendAlert("Error Deleting this Comment", ".danger", ".nav")
     }
 }
 
 
 const deleteBtns = document.querySelectorAll('.delete-comment');
 [...deleteBtns].forEach(deleteBtn => deleteBtn.addEventListener('click', deleteCommentHandler))
+
+//Edit Comment JS
+const editCommentHandler = async (event) => {
+    event.preventDefault();
+    console.log(event.target)
+    const commentId = event.target.getAttribute('data-id')
+    const editedComment = document.querySelector(`#updatedComment${commentId}`).value.trim()
+
+    console.log(commentId, editedComment)
+
+    const response = await fetch(`/api/comments/${commentId}`, {
+        method: 'PUT',
+        body: JSON.stringify({ id: commentId, comment_body: editedComment}),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    if (response.ok) {
+        document.location.reload('/')
+    }
+    if (response >= 400) {
+        sendAlert("Error Editing this Comment", ".danger", ".nav")
+    }
+}
+
+const editBtns = document.querySelectorAll('.edit-comment');
+[...editBtns].forEach(deleteBtn => deleteBtn.addEventListener('click', editCommentHandler))

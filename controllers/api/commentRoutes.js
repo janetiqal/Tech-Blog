@@ -68,9 +68,15 @@ router.post('/', withAuth, async (req, res) => {
 })
 //update a comment 
 router.put('/:id', withAuth, async (req, res) => {
+    const thisComment = await Comment.findOne({
+        where: {
+            id: req.params.id
+        }
+    });
+    if (req.session.user_id === thisComment.user_id) {
     try {
         const updateComment = await Comment.update({
-            body: req.body.body
+            comment_body:  req.body.comment_body,
         },
             {
                 where: {
@@ -86,7 +92,7 @@ router.put('/:id', withAuth, async (req, res) => {
     catch (err) {
         res.status(400).json(err)
     }
-
+    }
 })
 
 

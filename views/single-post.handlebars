@@ -23,7 +23,9 @@
             <div class="card-body ">
                 {{#if (isEqual ../user user_id) }}
                 <p>{{comment_body}} <span class="post-spans">&nbsp;&nbsp;
-                        <button class="btn-danger" id="delete-post" data-toggle="modal"
+                        <button type="button" class="btn btn-warning" data-toggle="modal" id="edit-post"
+                            data-target="#editComment{{id}}"><i class="far fa-edit"></i></button>&nbsp;&nbsp; <button
+                            class="btn-danger" id="delete-post" data-toggle="modal"
                             data-target="#deleteComment{{id}}"><i class="fas fa-trash-alt"></i></button></span></p>
                 {{else}}
                 <p>{{comment_body}}</p>
@@ -44,6 +46,22 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger delete-comment" data-dismiss="modal"
                     data-id={{id}}>Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{!edit comment modal}}
+<div class="modal fade" id="editComment{{id}}" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+         <div class="modal-body" style="margin: 0 auto;">
+                <h5 id="title">Edit Comment:</h5>
+                <textarea name="updatedComment" class="updatedComment" id="updatedComment{{id}}" cols="40" rows="8">{{comment_body}}</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger edit-comment" data-dismiss="modal"
+                    data-id={{id}}>Update</button>
             </div>
         </div>
     </div>
