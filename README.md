@@ -9,6 +9,7 @@ This is an CMS-style blog app that allows users to either sign in or sign-up and
 - [Features](#features)
 - [Link to Deployed App](#link-to-deployed-app)
 - [Technologies](#technologies)
+- [User Story](#user-story)
 - [ScreenShot](#screenshot)
 - [License](#license)
 - [Questions](#questions)
@@ -28,6 +29,14 @@ Technologies used to create an MVC App:
 - MySQL AND Sequelize ORM was used to create the database.
 - Handlebars.js was used as the template engine for this app.
 - bcrypt to has user passwords, dotenv was used to store enviornment variables.
+
+## User Story
+
+```md
+AS A developer who writes about tech
+I WANT a CMS-style blog site
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
+```
 
 ## Screenshot
 I chose a minimilistic styling approach. <br>
