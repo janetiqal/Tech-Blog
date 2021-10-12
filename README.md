@@ -15,7 +15,7 @@ This is an CMS-style blog app that allows users to either sign in or sign-up and
 - [Questions](#questions)
 
 ## Features 
-  This app allows signed-in users to create, edit, and delete their posts while on their dashboard page. Users can navigate to the homepage, where they will see all posts made by every user, they are able to see when the post was created and the username of the user who wrote it. The signed-in user will also be able to see the amount of comments on the post, or see "Add A Comment" if the post has no comments. Use is then able to click on the comment link and is taken to a page with the specific post, see all the comments, if any, add a comment and is able to delete their own comment. 
+This app allows signed-in users to create, edit, and delete their posts while on their dashboard page. Users, logged in or not, can view the homepage, where they will see all posts made by every user, they are able to see when the post was created and the username of the user who wrote it. Users will also be able to see the amount of comments on the post, or see "Add A Comment" if the post has no comments. All users are able to click on a post and see the comments associated with it. Logged in users are able to add a comment to a post and are able to edit or delete their own comment. 
 
   User session ends after 10 min of inactivty, but does reset when the user makes any request. 
 
@@ -38,7 +38,8 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
 
 ## Screenshot
-I chose a minimilistic styling approach. <br>
+I chose a minimilistic styling approach.
+<br><br>
 <img width="500" alt="homepage" src="https://user-images.githubusercontent.com/84414488/137014528-51c02354-173e-4b16-bf6f-50b43292e8b0.png"> <br>
 <img width="500" alt="comment" src="https://user-images.githubusercontent.com/84414488/137021531-d576f4ba-c785-4b94-84ae-93031ded898e.png"><br>
 <img width="500" alt="dashboard" src="https://user-images.githubusercontent.com/84414488/137014576-695393e7-b2ad-4d6f-92db-221597f57871.png">
