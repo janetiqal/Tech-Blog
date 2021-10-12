@@ -41,7 +41,8 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ## Screenshot
 I chose a minimilistic styling approach. <br>
 <img width="500" alt="homepage" src="https://user-images.githubusercontent.com/84414488/137014528-51c02354-173e-4b16-bf6f-50b43292e8b0.png"> <br>
-<img width="500" alt="Screen Shot 2021-10-12 at 3 03 16 PM" src="https://user-images.githubusercontent.com/84414488/137021531-d576f4ba-c785-4b94-84ae-93031ded898e.png"><img width="500" alt="dashboard" src="https://user-images.githubusercontent.com/84414488/137014576-695393e7-b2ad-4d6f-92db-221597f57871.png">
+<img width="500" alt="comment" src="https://user-images.githubusercontent.com/84414488/137021531-d576f4ba-c785-4b94-84ae-93031ded898e.png"><br>
+<img width="500" alt="dashboard" src="https://user-images.githubusercontent.com/84414488/137014576-695393e7-b2ad-4d6f-92db-221597f57871.png">
 
 
 
