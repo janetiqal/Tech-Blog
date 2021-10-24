@@ -20,9 +20,9 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      // validate:{
-      //   isAlphanumeric: true
-      // }
+      validate: {
+        len: [4],
+      },
     },
     email: {
       type: DataTypes.STRING,
