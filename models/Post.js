@@ -23,7 +23,6 @@ Post.init({
     post_body: {
         type: DataTypes.TEXT,
         allowNull: false,
-        //validation
     },
     user_id: {
         type: DataTypes.INTEGER,

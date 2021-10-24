@@ -49,11 +49,8 @@ const signupFormHandler = async (event) => {
     event.preventDefault();
 
     const email = document.querySelector('#signupEmail').value.trim();
-    console.log(email)
     const username = document.querySelector('#signupUsername').value.trim();
-    console.log(username)
     const password = document.querySelector('#signupPassword').value.trim();
-    console.log(password)
 
     //alerts user if fields left empty
     if (!username || !password || !email) {
