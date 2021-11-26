@@ -1,5 +1,4 @@
 console.log("login/signup js connected")
-// const  sendAlert =require('../../utils/function')
 
 //login JS
 const loginFormHandler = async (event) => {
@@ -67,6 +66,12 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
             //if successfule signup, sending user to their profile
             document.location.replace('/dashboard')
+        }
+        if (response.status === 408) {
+            sendAlert("Email or Username is already in use.", 'danger', '.signup-btn');
+        }
+        if (response.status === 409) {
+            sendAlert("Password Length must be 8 characters or longer.", 'danger', '.signup-btn');
         }
         if (response.status === 400) {
             sendAlert("Error signing up.", 'danger', '.signup-btn');
