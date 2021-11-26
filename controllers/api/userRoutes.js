@@ -50,16 +50,18 @@ router.post('/', async (req, res) => {
     try {
         const uniqueEmail = await User.findOne({ where: { email: req.body.email } });
         const uniqueUsername = await User.findOne({ where: { username: req.body.username } });
-        const userPassword = req.body.password;
         if (uniqueEmail || uniqueUsername) {
             res.status(408).json({ message: 'The requested Username or Email is already in use. Please enter a different username or email.' });
             return;
           }
-          if(userPassword.length <8){
+          if (req.body.username.length < 4) {
+            res.status(410).json({ message: 'Usernames must be longer than 4 characters.'});
+            return;
+          }
+          if(req.body.password.length < 8){
               res.status(409).json({message:'Password Length must be 8 characters or longer'})
               return;
           }
-          console.log(`USERNAME NOT TAKEN`)
         const newUser = await User.create({
             username: req.body.username,
             email: req.body.email,

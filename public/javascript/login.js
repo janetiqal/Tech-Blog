@@ -67,11 +67,15 @@ const signupFormHandler = async (event) => {
             //if successfule signup, sending user to their profile
             document.location.replace('/dashboard')
         }
+        //adding error handling for user sign up to meet validation parameters
         if (response.status === 408) {
             sendAlert("Email or Username is already in use.", 'danger', '.signup-btn');
         }
         if (response.status === 409) {
             sendAlert("Password Length must be 8 characters or longer.", 'danger', '.signup-btn');
+        }
+        if (response.status === 410) {
+            sendAlert("Username must be 4 characters or longer.", 'danger', '.signup-btn');
         }
         if (response.status === 400) {
             sendAlert("Error signing up.", 'danger', '.signup-btn');
